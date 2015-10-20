@@ -1,0 +1,14 @@
+
+<% @comments.each do |x| %>
+  <%= x.comments %> <br>
+<%end%>
+
+<p>create a new comments</p>
+<%= form_for(@comment) do |f| %>
+  <%= f.label :comments %> <br>
+  <%= f.text_field :comments %>
+  <%= f.hidden_field :customer_id, :value => params[:comment_id] %>
+  <div class="action">
+    <%= f.submit %>
+  </div>
+<%end%>

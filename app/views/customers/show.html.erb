@@ -1,0 +1,63 @@
+<script>
+$(function(){
+  $( "#comment_overdue_since" ).datepicker({
+    changeMonth: true,
+    changeYear: true,
+    dateFormat: 'dd-mm-yy'
+  });
+});
+</script>
+
+<div class="container">
+<table border="1" style="width: 100%; text-align:center;">
+  <thead>
+    <tr>
+      <th><%= @customer.name %></th>
+      <th>Tertunggak sejak:</th>
+      <th>Jumlah</th>
+      <th>Ditulis oleh:</th>
+      <th>Nota</th>
+    </tr>
+  </thead>
+  <tbody style="text-align:center;">
+    <tr>
+      <% @comments.each do |x| %>
+      <td><%= x.id%></td>
+      <td><%= x.overdue_since %></td>
+      <td><%= x.amount %></td>
+      <td><%= x.lodged_by %></td>
+      <td><%= x.remarks %></td>
+    </tr>
+    <%end%>
+    <br>
+  </tbody>
+</table>
+</div>
+
+<br><br><br><br><br>
+
+<div class="container">
+<%= form_for([@customer, @comment]) do |f| %>
+<div class="col-md-2">
+<%= f.label :tertunggak_sejak %> 
+<%= f.text_field :overdue_since %>
+</div>
+<div class="col-md-2">
+<%= f.label :jumlah %>
+<%= f.text_field :amount %>
+</div>
+<div class="col-md-2">
+<%= f.label :ditulis_oleh %> 
+<%= f.text_field :lodged_by %>
+</div>
+<div class="col-md-2">
+<%= f.label :nota %> 
+<%= f.text_field :remarks %>
+</div>
+<div class="col-md-2">
+  <%= f.submit %>
+  </div>
+<%end%>
+<%= link_to "Back" , dashboard_path,  :"data-no-turbolink" => true  %></dd>
+
+</div>
