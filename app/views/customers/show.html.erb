@@ -12,11 +12,11 @@ $(function(){
 <table border="1" style="width: 100%; text-align:center;">
   <thead>
     <tr>
-      <th><%= @customer.name %></th>
-      <th>Tertunggak sejak:</th>
-      <th>Jumlah</th>
-      <th>Ditulis oleh:</th>
-      <th>Nota</th>
+      <th style="text-align:center; font-size:15px;">Nama: <%= @customer.name %></th>
+      <th style="text-align:center; font-size:15px;">Tertunggak sejak:</th>
+      <th style="text-align:center; font-size:15px;">Jumlah</th>
+      <th style="text-align:center; font-size:15px;">Ditulis oleh:</th>
+      <th style="text-align:center; font-size:15px;">Nota</th>
     </tr>
   </thead>
   <tbody style="text-align:center;">
@@ -34,30 +34,30 @@ $(function(){
 </table>
 </div>
 
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 <div class="container">
-<%= form_for([@customer, @comment]) do |f| %>
+  <%= form_for([@customer, @comment]) do |f| %>
 <div class="col-md-2">
-<%= f.label :tertunggak_sejak %> 
-<%= f.text_field :overdue_since %>
+  <%= f.label :tertunggak_sejak %>
+  <%= f.text_field :overdue_since, class: 'form-control'  %>
 </div>
 <div class="col-md-2">
-<%= f.label :jumlah %>
-<%= f.text_field :amount %>
+  <%= f.label :jumlah %>
+  <%= f.text_field :amount, class: 'form-control'  %>
 </div>
 <div class="col-md-2">
-<%= f.label :ditulis_oleh %> 
-<%= f.text_field :lodged_by %>
+  <%= f.label :ditulis_oleh %> 
+  <%= f.text_field :lodged_by, class: 'form-control'  %>
 </div>
 <div class="col-md-2">
-<%= f.label :nota %> 
-<%= f.text_field :remarks %>
+  <%= f.label :nota %> 
+  <%= f.text_field :remarks, class: 'form-control'  %>
 </div>
 <div class="col-md-2">
-  <%= f.submit %>
-  </div>
-<%end%>
-<%= link_to "Back" , dashboard_path,  :"data-no-turbolink" => true  %></dd>
+  <%= f.submit "Tambah rekod", class: 'form-control' %>
+</div>
+  <%end%>
 
+  <dd><%= link_to "Halaman utama" , dashboard_path, class: "btn btn-primary", :"data-no-turbolink" => true  %></dd>
 </div>

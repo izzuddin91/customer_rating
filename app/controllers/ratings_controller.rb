@@ -12,7 +12,6 @@ class RatingsController < ApplicationController
     @comments = @customer.comments
     @comment = Comment.new
   render 'customers/show'
-
   end
 
   def autocomplete_result

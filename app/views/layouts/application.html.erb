@@ -5,10 +5,9 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </head>
 <body>
   <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -20,28 +19,23 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">iKargo</a>
+        <%if !current_user.nil?%>
+        <a class="navbar-brand" href="/dashboard" style="font-size:20px; color:#F96D33" >iKargo</a>
+        <%end%>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-
           <% if user_signed_in? %>
           <li style="color:white; padding-top:15px;color:#9d9d9d;" class= "icon-bar">Signed in as <%= current_user.email %> as <%= current_user.username%></li>
-          <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+          <li ><%= link_to "Keluar", destroy_user_session_path, style: "color:white;", :method => :delete, style: "font-size:20px"; %></li>
           <% else %>
-          <li><%= link_to "Sign up", new_user_registration_path %></li>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li style="font-size:20px;"><%= link_to "Daftar", new_user_registration_path %></li>
+          <li style="font-size:20px;"><%= link_to "Masuk", new_user_session_path %></li>
           <%end%>
-          
-          
         </ul>
-        
       </div>
     </div>
   </nav>
-
-
-
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>

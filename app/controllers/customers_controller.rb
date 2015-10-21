@@ -1,7 +1,10 @@
 class CustomersController < ApplicationController
+  
   def create
-    Customer.create(name: params[:customer][:name])
-    redirect_to dashboard_path
+    @customer = Customer.find_or_create_by(name: params[:customer][:name])
+    @comments = @customer.comments
+    @comment = Comment.new
+    render 'show'
   end
 
   def show
