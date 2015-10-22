@@ -37,7 +37,7 @@ def approve
   a = params["user_ids"]
   b = User.find_by(id: a)
   b.update(pending_approval: true)
-  render 'dashboard'
+  redirect_to dashboard_path
 end
 
 end

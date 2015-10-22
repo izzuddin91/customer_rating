@@ -80,15 +80,14 @@
 
 
 <% if current_user.email == "richard@ikargo.com" %>
-
 <h2>List of user waiting for approval</h2>
 
 <% user = User.where(pending_approval: false)%>
 <% user.each do |x| %>
-<%= form_tag approve_path, :method => :put, remote: true do %>
-<td><%= check_box_tag "user_ids[]", x.id %></td>
-<td><%= x.username %></td>
-<%= submit_tag "Approve"%>
+<%= form_tag approve_path, :method => :put do %>
+  <td><%= check_box_tag "user_ids[]", x.id %></td>
+  <td><%= x.username %></td>
+  <%= submit_tag "Approve"%>
 <%end%>
 <%end%>
 <%end%>
