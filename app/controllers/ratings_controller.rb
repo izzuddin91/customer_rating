@@ -32,6 +32,14 @@ number = params[:term].length - 1
 end
 render json: @back
 end
+
+def approve
+  a = params["user_ids"]
+  b = User.find_by(id: a)
+  b.update(pending_approval: true)
+  render 'dashboard'
+end
+
 end
 
 
