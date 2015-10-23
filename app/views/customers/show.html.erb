@@ -45,11 +45,14 @@ $(function(){
 </div>
 <br>
 
+
 <% if !@customer.nil?%>
 <% a = current_user.id %>
 <% b = User.find_by(id: a)%>
 <%if b.pending_approval == true %>
 <div class="container">
+  <h2>Tulis laporan baru di bawah:</h2>
+  <br>
   <%= form_for([@customer, @comment]) do |f| %>
 <div class="col-md-2">
   <%= f.label :tertunggak_sejak %>
