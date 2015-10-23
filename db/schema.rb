@@ -21,11 +21,9 @@ ActiveRecord::Schema.define(version: 20151014110109) do
     t.string   "overdue_since"
     t.string   "amount"
     t.string   "lodged_by"
-    t.string   "types_of_lorry"
-    t.string   "location"
     t.string   "remarks"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -40,6 +38,9 @@ ActiveRecord::Schema.define(version: 20151014110109) do
     t.string   "encrypted_password",     default: "",    null: false
     t.boolean  "pending_approval",       default: false
     t.boolean  "admin",                  default: true
+    t.string   "types_of_lorry"
+    t.string   "location"
+    t.string   "handphone_no"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

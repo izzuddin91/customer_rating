@@ -9,10 +9,15 @@ class RatingsController < ApplicationController
   def search
     result = params[:result]
     @customer = Customer.find_by(name: result)
-    @comments = @customer.comments
-    @comment = Comment.new
-  render 'customers/show'
+    if !@customer.blank?
+      @comments = @customer.comments
+      @comment = Comment.new
+    else
+      @customer == ""
+      end
+      render 'customers/show'
   end
+
 
   def autocomplete_result
     @shipper = []

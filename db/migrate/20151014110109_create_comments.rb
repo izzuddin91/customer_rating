@@ -5,8 +5,6 @@ class CreateComments < ActiveRecord::Migration
       t.string :overdue_since
       t.string :amount
       t.string :lodged_by
-      t.string :types_of_lorry
-      t.string :location
       t.string :remarks
       t.timestamps null: false
     end

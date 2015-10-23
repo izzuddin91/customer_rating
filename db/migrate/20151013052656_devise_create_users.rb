@@ -7,6 +7,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :encrypted_password, null: false, default: ""
       t.boolean :pending_approval, :default => false 
       t.boolean :admin, :default => true
+      t.string :types_of_lorry
+      t.string :location
+      t.string :handphone_no
 
 
       ## Recoverable

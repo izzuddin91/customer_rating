@@ -1,13 +1,29 @@
 <div class="container" style="text-align:center;">
-<h2>Sign up</h2>
+  <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-    <div class="username">
+  <div class="username">
     <%= f.label :username %><br />
     <%= f.text_field :username%>
   </div>
+
+  <div class="handphone_no">
+    <%= f.label :handphone_no %><br />
+    <%= f.text_field :handphone_no%>
+  </div>
+
+  <div class="types_of_lorry">
+    <%= f.label :types_of_lorry %><br />
+    <%= f.text_field :types_of_lorry%>
+  </div>
+
+  <div class="location">
+    <%= f.label :location %><br />
+    <%= f.text_field :location%>
+  </div>
+
 
   <div class="field">
     <%= f.label :email %><br />
@@ -30,7 +46,7 @@
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
-<% end %>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
 </div>
