@@ -93,10 +93,10 @@ $(function (){
           <tr>
             <%= form_tag approve_path, :method => :put do %>
             <td><%= check_box_tag "user_ids[]", x.id %></td>
-            <td>name: <%= x.username %>  </td>
-            <td> email: <%= x.email%> </td>
-            <td>   h/p no:<%= x.handphone_no %>  </td>
-            <td>  lorry type:<%= x.types_of_lorry %>  </td>  
+            <td><%= x.username %>  </td>
+            <td><%= x.email%> </td>
+            <td><%= x.handphone_no %>  </td>
+            <td><%= x.types_of_lorry %>  </td>  
             <td>location:<%= x.location%>   </td>
             <td> <%= submit_tag "Approve"%></td>
           </tr>
