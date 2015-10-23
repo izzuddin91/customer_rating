@@ -20,7 +20,7 @@ $(function(){
       <th style="text-align:center; font-size:15px;">Nama: <%= @customer.name %></th>
       <th style="text-align:center; font-size:15px;">Tertunggak sejak:</th>
       <th style="text-align:center; font-size:15px;">Jumlah</th>
-      <th style="text-align:center; font-size:15px;">Ditulis oleh:</th>
+      <th style="text-align:center; font-size:15px;">Dilapor oleh:</th>
       <th style="text-align:center; font-size:15px;">Nota</th>
     </tr>
   </thead>
@@ -39,9 +39,10 @@ $(function(){
 </table>
 </div>
 <%end%>
-<br><br><br><br><br><br><br><br>
-
-
+<br>
+<div class="container">
+  <dd><%= link_to "Halaman utama" , dashboard_path, class: "btn btn-primary", style: "text-align:center;", :"data-no-turbolink" => true %></dd></div>
+<br>
 
 <% if !@customer.nil?%>
 <% a = current_user.id %>
@@ -65,14 +66,12 @@ $(function(){
   <%= f.label :nota %> 
   <%= f.text_field :remarks, class: 'form-control'  %>
 </div>
-
+<br>
 <div class="col-md-2">
-  <%= f.submit "Tambah rekod", class: 'form-control' %>
+  <%= f.submit "Tambah rekod", class: "btn btn-primary" %>
 </div>
   <%end%>
 <%end%>
 <%end%>
 
-
-  <dd><%= link_to "Halaman utama" , dashboard_path, class: "btn btn-primary", :"data-no-turbolink" => true  %></dd>
 </div>

@@ -14,8 +14,8 @@ class RatingsController < ApplicationController
       @comment = Comment.new
     else
       @customer == ""
-      end
-      render 'customers/show'
+    end
+    render 'customers/show'
   end
 
 
