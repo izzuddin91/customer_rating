@@ -43,6 +43,9 @@ $(function (){
       <%= f.submit "tulis/cari"%>
       <%end%>
     </div>
+<div class="col-md-4" style="text-align:center;">
+</div>
+
     <div class="col-md-4" style="text-align:center;">
       <%= form_tag("/searches", :method => "get") do %>
       <%= label_tag(:result, "Cari dari senarai:") %>
@@ -50,10 +53,12 @@ $(function (){
       <%= submit_tag("Cari") %>
       <% end %>
     </div>
+<br><br>
 
-    <div class="container">
      
-      <h1 style="text-align:center;">Senarai Shipper/customer</h1>
+      <h1 style="text-align:center;">senarai customer</h1>
+
+
       <table border="1" style="width:100%; text-align:center;">
         <tr>
           <td>Senarai Shipper</td>
@@ -66,6 +71,8 @@ $(function (){
         </tr>
         <%end%>
       </table>
+
+
       <% else %>
       <h1 style="text-align:center;">Status permohonan anda akan diproses dalam 1-2 hari.</h1>
       <% end %>
