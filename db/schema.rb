@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 20151014110109) do
     t.string   "overdue_since"
     t.string   "amount"
     t.string   "lodged_by"
+    t.string   "types_of_lorry"
+    t.string   "location"
     t.string   "remarks"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "customers", force: :cascade do |t|

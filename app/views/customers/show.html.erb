@@ -21,8 +21,8 @@ $(function(){
   </thead>
   <tbody style="text-align:center;">
     <tr>
-      <% @comments.each do |x| %>
-      <td><%= x.id%></td>
+      <% @comments.each_with_index do |x,y| %>
+      <td><%= y+1 %></td>
       <td><%= x.overdue_since %></td>
       <td><%= x.amount %></td>
       <td><%= x.lodged_by %></td>
@@ -54,6 +54,17 @@ $(function(){
   <%= f.label :nota %> 
   <%= f.text_field :remarks, class: 'form-control'  %>
 </div>
+
+<div class="col-md-2">
+  <%= f.label :jenis_lori %> 
+  <%= f.text_field :types_of_lorry, class: 'form-control'  %>
+</div>
+
+<div class="col-md-2">
+  <%= f.label :kawasan %> 
+  <%= f.text_field :location, class: 'form-control'  %>
+</div>
+
 <div class="col-md-2">
   <%= f.submit "Tambah rekod", class: 'form-control' %>
 </div>

@@ -8,6 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean :pending_approval, :default => false 
       t.boolean :admin, :default => true
 
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

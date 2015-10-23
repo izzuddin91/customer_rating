@@ -7,6 +7,6 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:overdue_since, :amount, :lodged_by, :remarks)
+      params.require(:comment).permit(:overdue_since, :amount, :lodged_by, :remarks, :types_of_lorry, :location)
     end
 end

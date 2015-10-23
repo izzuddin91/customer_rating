@@ -1,8 +1,7 @@
 
-      <% a = User.find_by(email: "richard@ikargo.com")%>
-      <%a.update(admin: true)%>
-      <%a.update(pending_approval: true)%>
-
+<% a = User.find_by(email: "richard@ikargo.com")%>
+<%a.update(admin: true)%>
+<%a.update(pending_approval: true)%>
 
  <script>
  $(function (){
@@ -31,7 +30,7 @@
 
 
 <div class="container">
-
+<div class="row">
 
 <% a = current_user.id %>
 <% b = User.find_by(id: a)%>
@@ -39,7 +38,7 @@
 
 <h2 style="text-align:center;">Masukkan shipper baru, atau cari dari senarai sedia ada</h2>
 <br>
-<div class="col-md-6" style="text-align:center;">
+<div class="col-md-4" style="text-align:center;">
   <%= form_for(@customer) do |f| %>
   <%= f.label(:nama_shipper, "hasil carian akan terpapar jika sudah sedia ada:")%> <br>
   <%= f.text_field :name %>
@@ -50,17 +49,38 @@
 
 <h2 style="text-align:center;">Status permohonan anda akan diproses. Sementara itu anda boleh melihat senarai customer di bawah</h2>
 <% end %>
+<div class="col-md-4">
+  <h1>       </h1>
+</div>
 
 
-<div class="col-md-6" style="text-align:center;">
+<div class="col-md-4" style="text-align:center;">
       <%= form_tag("/searches", :method => "get") do %>
       <%= label_tag(:result, "Cari dari senarai:") %>
       <%= text_field_tag(:result) %>
       <%= submit_tag("Cari") %>
       <% end %>
 </div>
+</div>
 
 </div>
+
+<div class="container">
+  <% if current_user.email == "richard@ikargo.com" %>
+<h2 style="text-align:center;">For admin, this is a list of user waiting for approval</h2>
+<br><br>
+<% user = User.where(pending_approval: false)%>
+      <% user.each do |x| %>
+<%= form_tag approve_path, :method => :put do %>
+  <td><%= check_box_tag "user_ids[]", x.id %></td>
+  <td><%= x.username %></td>
+      <%= submit_tag "Approve"%>
+    <%end%>
+  <%end%>
+<%end%>
+</div>
+
+
 <div class="container">
 <br>
   <h1 style="text-align:center;">Senarai Shipper/customer</h1>
@@ -78,19 +98,6 @@
   </table>
 </div>
 
-
-<% if current_user.email == "richard@ikargo.com" %>
-<h2>List of user waiting for approval</h2>
-
-<% user = User.where(pending_approval: false)%>
-<% user.each do |x| %>
-<%= form_tag approve_path, :method => :put do %>
-  <td><%= check_box_tag "user_ids[]", x.id %></td>
-  <td><%= x.username %></td>
-  <%= submit_tag "Approve"%>
-<%end%>
-<%end%>
-<%end%>
 
 
 </div>
